@@ -43,11 +43,7 @@
                 @Html.DisplayFor(model => item.FirstMatch)
             </td>
             <td>
-                @if (User.IsInRole("Administrator"))
-                {
-                        @* Only show the create new link if admin role. MISS READ, DELETE THIS AND DO IT AT LINE 8 *@
-                        <a asp-action="Create" asp-route-id="@item.TeamId">Create</a>
-                }
+                 @* Deleted everything *@
             </td>
         </tr>
 }

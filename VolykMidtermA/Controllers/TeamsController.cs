@@ -9,9 +9,22 @@ namespace VolykMidtermA.Controllers
 {
     public class TeamsController : Controller
     {
+        // shared db obj
+        private readonly ApplicationDbContext _context;
+
+        // constructor w/db dependency
+        public TeamsController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
         public IActionResult Index()
         {
-            return View();
+            var teams = _context.Team
+                .OrderBy(t => t.Ranking)
+                .ToList();
+
+            return View(teams);
         }
     }
 }
