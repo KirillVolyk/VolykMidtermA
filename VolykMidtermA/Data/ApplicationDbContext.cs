@@ -9,5 +9,7 @@ namespace VolykMidtermA.Data
             : base(options)
         {
         }
+
+        public DbSet<VolykMidtermA.Models.Team> Team { get; set; }
     }
 }
