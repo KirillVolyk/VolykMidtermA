@@ -28,7 +28,7 @@ namespace VolykMidtermA.Controllers
         }
 
         // GET: Teams/Create ADMIN ONLY
-        [Authorize(Roles = "Administrator")]
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             return View();
