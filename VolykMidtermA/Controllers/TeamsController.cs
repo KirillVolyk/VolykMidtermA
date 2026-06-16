@@ -36,6 +36,7 @@ namespace VolykMidtermA.Controllers
         }
 
         // POST: Teams/Create ADMIN ONLY
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult Create([Bind("Country, Group, Ranking, FirstMatch,TeamId")] Team team)
         {
