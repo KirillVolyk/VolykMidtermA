@@ -27,7 +27,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Teams" asp-action="Index">Teams</a>
                         </li>
 
-                        @if (User.IsInRole("Admin") || User.IsInRole("Administrator") || User.IsInRole("admin") || User.IsInRole("administrator"))
+                        @if (User.IsInRole("Admin"))
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Teams" asp-action="Create">Create Teams</a>

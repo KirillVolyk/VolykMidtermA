@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
 using VolykMidtermA.Data;
 using VolykMidtermA.Models;
@@ -32,6 +33,20 @@ namespace VolykMidtermA.Controllers
         public IActionResult Create()
         {
             return View();
+        }
+
+        // POST: Teams/Create ADMIN ONLY
+        [HttpPost]
+        public IActionResult Create([Bind("Country, Group, Ranking, FirstMatch,TeamId")] Team team)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(team);
+            }
+            _context.Team.Add(team);
+            _context.SaveChanges();
+            // redirect to index if valid
+            return RedirectToAction("Index");
         }
     }
 }
